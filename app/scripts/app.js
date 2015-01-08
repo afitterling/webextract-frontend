@@ -14,13 +14,11 @@ angular.module('myApp', [
         url: '/search',
         templateUrl: 'partials/search.html'
       })
-    $stateProvider.go('search');
   }])
 
-  .run(['$rootScope', function ($rootScope) {
-    {
+  .run(['$rootScope','$location',  function ($rootScope, $location) {
       $rootScope.string = 'Alex';
-    }
+//      $location.path('/search');
   }])
 
 

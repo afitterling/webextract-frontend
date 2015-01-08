@@ -1,7 +1,15 @@
 <html>
 <head>
 
+    <!-- @TODO build -->
+
+    <!-- material -->
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <!-- app css -->
+    <link rel="stylesheet" href="css/app.css">
 
     <!-- @TODO build -->
 
@@ -27,6 +35,12 @@
 </head>
 
 <body ng-app="myApp">
+
+<md-toolbar class="md-theme-light md-default-theme">
+    <h1 class="md-toolbar-tools header">
+        <span ui-sref="home">WEB EXTRACT</span> | <span class="small">@sp33c</span>
+    </h1>
+</md-toolbar>
 
 <div layout="row" layout-sm="column">
     <div flex="70">
