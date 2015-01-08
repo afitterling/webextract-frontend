@@ -1,0 +1,20 @@
+{
+  "name": "webextract",
+  "version": "0.0.0",
+  "authors": [
+    "Alexander Fitterling <info@sp33c.de>"
+  ],
+  "license": "MIT",
+  "homepage": "webextract.org",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "~0.6.1",
+    "angular-ui-router": "~0.2.13"
+  }
+}

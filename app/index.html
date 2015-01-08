@@ -1,9 +1,9 @@
- <head>
+<html>
+<head>
 
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
 
-  </head>
-  <body>
+    <!-- @TODO build -->
 
     <!-- Angular Material Dependencies -->
     <script src="bower_components/hammerjs/hammer.js"></script>
@@ -14,8 +14,29 @@
     <!-- Angular Material Javascript  -->
     <script src="bower_components/angular-material/angular-material.js"></script>
 
-    <section>
-        container
-    </section>
-</body>
+    <!-- ui -router -->
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
+    <!-- ng-cloak -->
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+
+</head>
+
+<body ng-app="myApp">
+
+<div layout="row" layout-sm="column">
+    <div flex="70">
+        <md-content class="md-padding">
+            <div ui-view></div>
+        </md-content>
+    </div>
+</div>
+
+<script src="scripts/app.js"></script>
+
+</body>
+</html>
