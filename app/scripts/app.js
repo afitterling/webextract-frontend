@@ -6,7 +6,7 @@ angular.module('myApp', [
   .config(['$stateProvider', function ($stateProvider) {
     $stateProvider
       .state('home', {
-        url: '/',
+        url: '',
         templateUrl: 'partials/home.html'
       })
     $stateProvider
@@ -17,37 +17,49 @@ angular.module('myApp', [
   }])
 
   .run(['$rootScope','$location',  function ($rootScope, $location) {
-      $rootScope.string = 'Alex';
-      $location.path('/');
 
   }])
 
 
-  .controller('DemoController', ['$scope', function ($scope) {
-    $scope.user = {
-      title: 'Technical Program Manager',
-      email: 'ipsum@lorem.com',
-      firstName: 'Naomi',
-      lastName: '',
-      company: 'Google',
-      address: '1600 Amphitheatre Pkwy',
-      city: 'Mountain View',
-      state: 'CA',
-      country: 'USA',
-      postalCode: '94043'
+  .controller('UrlController', ['$scope', '$timeout', '$http', function ($scope, $timeout, $http) {
+    var self = this;
+
+    $scope.data = {url: ''};
+
+    self.promise = null;
+
+    var timeout = 1500;
+
+    $scope.onChange = function () {
+      if (self.promise) {
+        $timeout.cancel(self.promise);
+      }
+      self.promise = $timeout(function(){
+        // @TODO API call
+
+        function addhttp(url) {
+          if (!/^(f|ht)tps?:\/\//i.test(url)) {
+            url = "http://" + url;
+          }
+          return url;
+        }
+
+        $scope.data.url = addhttp($scope.data.url);
+        $scope.pending = true;
+        $http.post('http://localhost:8080/api/check_url', {url: $scope.data.url}).then(function(success){
+          $scope.error = false;
+          $scope.pending = false;
+          $scope.success = true;
+          console.log(success);
+//          $scope.retrieve = true;
+        }, function(error){
+          console.log(error);
+          $scope.error = true;
+          $scope.pending = null;
+        });
+      }, timeout)
     };
-    $scope.todos = [
-      {who: 'google.de', what: 'some text and informations', brief: '............................'},
-      {who: 'google.de', what: 'some text and informations', brief: '............................'},
-      {who: 'google.de', what: 'some text and informations', brief: '............................'},
-      {who: 'google.de', what: 'some text and informations', brief: '............................'},
-      {who: 'google.de', what: 'some text and informations', brief: '............................'},
-      {who: 'google.de', what: 'some text and informations', brief: '............................'},
-      {who: 'google.de', what: 'some text and informations', brief: '............................'},
-      {who: 'google.de', what: 'some text and informations', brief: '............................'},
-      {who: 'google.de', what: 'some text and informations', brief: '............................'},
-      {who: 'google.de', what: 'some text and informations', brief: '............................'},
-    ];
+
   }])
 
   .controller('MyController', ['$scope', function ($scope) {

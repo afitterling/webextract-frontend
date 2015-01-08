@@ -1,38 +1,18 @@
-<div ng-controller="DemoController" layout="row">
-    <div flex="30">
-
-        <md-content md-theme="docs-dark">
-            <form style="padding: 20px;" flex>
-                <div class="row">
-                    <md-text-float label="specify URL" ng-model="data.url"></md-text-float>
-                    <!--<md-text-float label="crawl date" ng-disabled="true" ng-model="data.crawldate"></md-text-float>-->
-                </div>
-            </form>
-            <!--<md-button>-->
-                <!--Button-->
-            <!--</md-button>-->
-            <!--<md-progress-circular md-mode="determinate" value="80" diameter="100"></md-progress-circular>-->
-        </md-content>
-    </div>
-
-    <div flex="70">
-        <!--<md-content style="margin-top: 50px;">-->
-            <!--<md-list>-->
-                <!--<md-item ng-repeat="item in todos">-->
-                    <!--<md-item-content>-->
-                        <!--<div class="md-tile-left">-->
-                        <!--</div>-->
-                        <!--<div class="md-tile-content">-->
-                            <!--<h3>{{item.what}}</h3>-->
-                            <!--<h4>{{item.who}}</h4>-->
-                            <!--<p>-->
-                                <!--{{item.brief}}-->
-                            <!--</p>-->
-                        <!--</div>-->
-                    <!--</md-item-content>-->
-                <!--</md-item>-->
-            <!--</md-list>-->
-        <!--</md-content>-->
-    </div>
-
+<h4>Search</h4>
+<div ng-controller="UrlController" layout="row">
+    <form>
+        <!--<md-text-float label="specify URL" ng-model="data.url"-->
+                       <!--ng-disabled="false"></md-text-float>-->
+        <md-input-group>
+            <label for="url">specify URL</label>
+            <span ng-show="success" class="success">URL exists</span>
+            <span ng-show="error" class="error">URL not found!</span>
+            <md-input id="url"
+                      ng-model="data.url" ng-change="onChange()" ng-disabled="pending || success"
+                    ng-class="{'success': success}">
+            </md-input>
+        </md-input-group>
+        <span ng-show="pending">Checking ...</span>
+        <span ng-show="retrieve">Retrieving tree data ...</span>
+    </form>
 </div>

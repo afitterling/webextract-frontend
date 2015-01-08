@@ -1,0 +1,23 @@
+nav {
+  ul {
+    & {
+      line-height: 4.5rem;
+      font-size: 1.3rem;
+    }
+    li {
+      float: left;
+      padding: 0 10px;
+    }
+  }
+}
+
+.partial {
+  margin-top: 3rem;
+}
+
+.success {
+  color: green;
+}
+.error {
+  color: red;
+}

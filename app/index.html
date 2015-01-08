@@ -34,18 +34,31 @@
 
 </head>
 
-<body ng-app="myApp">
+<body ng-app="myApp" class="ng-cloak">
 
 <md-toolbar class="md-theme-light md-default-theme">
-    <h1 class="md-toolbar-tools header">
-        <span style="font-size: 120%; cursor: pointer;" ui-sref="home">WEB EXTRACT</span> | <span class="small">@sp33c</span>
-    </h1>
+    <div layout-sm="row" layout="row">
+        <div flex="20">
+            <h1 class="md-toolbar-tools header">
+                <span style="" ui-sref="home">WEB EXTRACT</span>
+                <!--| <span class="small">@sp33c</span>-->
+            </h1>
+        </div>
+        <div flex="80">
+                <nav>
+                    <ul>
+                        <li><span style="" ui-sref="home">home</span></li>
+                        <li><span ui-sref="search" class="">search</span></li>
+                        <li><span>profile<span ui-sref="search" ng-bind="profile.email">:</span></span></li>
+                    </ul>
+                </nav>
+        </div>
+    </div>
 </md-toolbar>
 
 <div layout="row" layout-sm="column">
-    <div flex="70">
-        <md-content class="md-padding">
-            <div ui-view></div>
+    <div flex>
+        <md-content md-theme="docs-dark" class="md-padding md-docs-dark-theme partial" ui-view>
         </md-content>
     </div>
 </div>
