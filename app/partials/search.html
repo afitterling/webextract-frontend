@@ -6,7 +6,8 @@
         <md-input-group>
             <label for="url">specify URL</label>
             <span ng-show="success" class="success">URL exists</span>
-            <span ng-show="error" class="error">URL not found!</span>
+            <span ng-show="error" class="error">URL does not exist!</span>
+            <span ng-show="notvalid" class="error">Not a valid URL!</span>
             <md-input id="url"
                       ng-model="data.url" ng-change="onChange()" ng-disabled="pending || success"
                     ng-class="{'success': success}">

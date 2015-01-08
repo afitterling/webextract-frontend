@@ -31,6 +31,8 @@ angular.module('myApp', [
     var timeout = 1500;
 
     $scope.onChange = function () {
+      $scope.notvalid = false;
+
       if (self.promise) {
         $timeout.cancel(self.promise);
       }
@@ -45,18 +47,24 @@ angular.module('myApp', [
         }
 
         $scope.data.url = addhttp($scope.data.url);
-        $scope.pending = true;
-        $http.post('http://localhost:8080/api/check_url', {url: $scope.data.url}).then(function(success){
-          $scope.error = false;
-          $scope.pending = false;
-          $scope.success = true;
-          console.log(success);
+
+        if (/^http(s)?:\/\/(www\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test($scope.data.url)) {
+          $scope.pending = true;
+          $http.post('http://localhost:8080/api/check_url', {url: $scope.data.url}).then(function(success){
+            $scope.error = false;
+            $scope.pending = false;
+            $scope.success = true;
+            console.log(success);
 //          $scope.retrieve = true;
-        }, function(error){
-          console.log(error);
-          $scope.error = true;
-          $scope.pending = null;
-        });
+          }, function(error){
+            console.log(error);
+            $scope.error = true;
+            $scope.pending = null;
+          });
+        } else {
+          $scope.notvalid = true;
+        }
+
       }, timeout)
     };
 
