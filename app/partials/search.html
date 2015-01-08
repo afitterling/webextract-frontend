@@ -1,10 +1,38 @@
-<div ng-controller="DemoController" layout="column">
-    <md-content md-theme="docs-dark">
-        <form style="padding: 20px;" flex>
-            <div class="row">
-                <md-text-float label="URL" ng-model="data.url"></md-text-float>
-                <!--<md-text-float label="crawl date" ng-disabled="true" ng-model="data.crawldate"></md-text-float>-->
-            </div>
-        </form>
-    </md-content>
+<div ng-controller="DemoController" layout="row">
+    <div flex="30">
+
+        <md-content md-theme="docs-dark">
+            <form style="padding: 20px;" flex>
+                <div class="row">
+                    <md-text-float label="specify URL" ng-model="data.url"></md-text-float>
+                    <!--<md-text-float label="crawl date" ng-disabled="true" ng-model="data.crawldate"></md-text-float>-->
+                </div>
+            </form>
+            <!--<md-button>-->
+                <!--Button-->
+            <!--</md-button>-->
+            <!--<md-progress-circular md-mode="determinate" value="80" diameter="100"></md-progress-circular>-->
+        </md-content>
+    </div>
+
+    <div flex="70">
+        <!--<md-content style="margin-top: 50px;">-->
+            <!--<md-list>-->
+                <!--<md-item ng-repeat="item in todos">-->
+                    <!--<md-item-content>-->
+                        <!--<div class="md-tile-left">-->
+                        <!--</div>-->
+                        <!--<div class="md-tile-content">-->
+                            <!--<h3>{{item.what}}</h3>-->
+                            <!--<h4>{{item.who}}</h4>-->
+                            <!--<p>-->
+                                <!--{{item.brief}}-->
+                            <!--</p>-->
+                        <!--</div>-->
+                    <!--</md-item-content>-->
+                <!--</md-item>-->
+            <!--</md-list>-->
+        <!--</md-content>-->
+    </div>
+
 </div>

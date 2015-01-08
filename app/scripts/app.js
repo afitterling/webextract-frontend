@@ -6,7 +6,7 @@ angular.module('myApp', [
   .config(['$stateProvider', function ($stateProvider) {
     $stateProvider
       .state('home', {
-        url: '',
+        url: '/',
         templateUrl: 'partials/home.html'
       })
     $stateProvider
@@ -18,7 +18,8 @@ angular.module('myApp', [
 
   .run(['$rootScope','$location',  function ($rootScope, $location) {
       $rootScope.string = 'Alex';
-//      $location.path('/search');
+      $location.path('/');
+
   }])
 
 
@@ -35,6 +36,18 @@ angular.module('myApp', [
       country: 'USA',
       postalCode: '94043'
     };
+    $scope.todos = [
+      {who: 'google.de', what: 'some text and informations', brief: '............................'},
+      {who: 'google.de', what: 'some text and informations', brief: '............................'},
+      {who: 'google.de', what: 'some text and informations', brief: '............................'},
+      {who: 'google.de', what: 'some text and informations', brief: '............................'},
+      {who: 'google.de', what: 'some text and informations', brief: '............................'},
+      {who: 'google.de', what: 'some text and informations', brief: '............................'},
+      {who: 'google.de', what: 'some text and informations', brief: '............................'},
+      {who: 'google.de', what: 'some text and informations', brief: '............................'},
+      {who: 'google.de', what: 'some text and informations', brief: '............................'},
+      {who: 'google.de', what: 'some text and informations', brief: '............................'},
+    ];
   }])
 
   .controller('MyController', ['$scope', function ($scope) {
